@@ -1,41 +1,51 @@
-This README file contains information on the contents of the meta-soms-in-space layer.
+# meta-soms-in-space
 
-Please see the corresponding sections below for details.
+A Yocto layer for deploying the "Soms In Space" game on PHYTEC hardware.
 
-Dependencies
-============
+## Description
 
-  URI: <first dependency>
-  branch: <branch name>
+This layer provides recipes and configuration to install the Soms In Space game, a PHYTEC demo project where you play as a PHYTEC SoM making your way to outer space. It configures the game to run automatically as a systemd service and includes display configuration options.
 
-  URI: <second dependency>
-  branch: <branch name>
+## Dependencies
 
-  .
-  .
-  .
+* poky (zeus or later)
+* meta-phytec (for PHYTEC hardware support)
+  * meta-ampliphy
 
-Patches
-=======
+## Configuration
 
-Please submit any patches against the meta-soms-in-space layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
+The layer provides the following display configuration options:
 
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+* `DISPLAY_TYPE`: Configure display output
+  * `lvds`: Use LVDS display (default)
+  * `hdmi`: Use HDMI display
+  * `none`: Don't configure display
 
-Table of Contents
-=================
+* `DISPLAY_ROTATION`: Configure screen rotation
+  * `rotate-90`: Rotate 90 degrees (default)
+  * `normal` or `none`: No rotation
+  * `rotate-180`: Rotate 180 degrees
+  * `rotate-270`: Rotate 270 degrees
 
-  I. Adding the meta-soms-in-space layer to your build
- II. Misc
+## Usage
 
+1. Add this layer to your Yocto build
+2. Add `soms-in-space` to your image
+3. Configure display options in your local.conf (optional)
 
-I. Adding the meta-soms-in-space layer to your build
-=================================================
+Example local.conf configuration:
 
-Run 'bitbake-layers add-layer meta-soms-in-space'
+``` ini
+# Default settings. This creates a portrait display using LVDS.
+DISPLAY_TYPE = "lvds"
+DISPLAY_ROTATION = "rotate-90"
 
-II. Misc
-========
+# Switch to HDMI output
+DISPLAY_TYPE = "hdmi"
+# Disable rotation
+DISPLAY_ROTATION = "normal"
+```
 
---- replace with specific information about the meta-soms-in-space layer ---
+## License
+
+This layer is provided under the MIT license.

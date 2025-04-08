@@ -1,0 +1,16 @@
+[Unit]
+Description=Soms In Space Game
+After=weston.service
+Requires=weston.service
+
+[Service]
+Environment=WAYLAND_DISPLAY=/run/wayland-0
+Type=simple
+User=root
+WorkingDirectory=~
+ExecStart=/root/Soms-In-Space.arm64 --display-driver wayland --rendering-driver opengl3_es --fullscreen
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target
