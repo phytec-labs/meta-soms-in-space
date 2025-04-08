@@ -6,15 +6,29 @@ A Yocto layer for deploying the "Soms In Space" game on PHYTEC hardware.
 
 This layer provides recipes and configuration to install the Soms In Space game, a PHYTEC demo project where you play as a PHYTEC SoM making your way to outer space. It configures the game to run automatically as a systemd service and includes display configuration options.
 
+Soms In Space Source: https://github.com/phytec-labs/SomsInSpace
+
 ## Dependencies
 
 * poky (zeus or later)
 * meta-phytec (for PHYTEC hardware support)
   * meta-ampliphy
 
+## Usage
+
+1. Add this layer to your Yocto build
+2. Configure display options in your local.conf (optional)
+3. Build and install the image with soms in space demo service included
+
+```
+bitbake phytec-somsinspace-image
+```
+
+Example local.conf configuration:
+
 ## Configuration
 
-The layer provides the following display configuration options:
+The layer provides the following display configuration options to be added to local.conf:
 
 * `DISPLAY_TYPE`: Configure display output
   * `lvds`: Use LVDS display (default)
@@ -27,16 +41,11 @@ The layer provides the following display configuration options:
   * `rotate-180`: Rotate 180 degrees
   * `rotate-270`: Rotate 270 degrees
 
-## Usage
-
-1. Add this layer to your Yocto build
-2. Add `soms-in-space` to your image
-3. Configure display options in your local.conf (optional)
-
-Example local.conf configuration:
+### local.conf examples
 
 ``` ini
 # Default settings. This creates a portrait display using LVDS.
+# If nothing is added to the local.conf, this is what is used
 DISPLAY_TYPE = "lvds"
 DISPLAY_ROTATION = "rotate-90"
 
