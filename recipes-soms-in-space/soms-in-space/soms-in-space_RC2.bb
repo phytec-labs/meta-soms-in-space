@@ -17,6 +17,9 @@ inherit systemd
 # Make sure we have these dependencies
 RDEPENDS:${PN} += "weston systemd"
 
+# Disable QA check for already-stripped binaries
+INSANE_SKIP:${PN} += "already-stripped"
+
 do_install() {
     # Create destination directory
     install -d ${D}/root
