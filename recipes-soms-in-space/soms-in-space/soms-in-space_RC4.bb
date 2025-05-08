@@ -4,11 +4,11 @@ HOMEPAGE = "https://github.com/phytec-labs/SomsInSpace"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI = "https://github.com/phytec-labs/SomsInSpace/releases/download/RC2/Soms-In-Space.arm64 \
+SRC_URI = "https://github.com/phytec-labs/SomsInSpace/releases/download/RC4/Soms-In-Space.arm64 \
            file://soms-in-space.service \
           "
-SRC_URI[md5sum] = "0ca3e19927d35f9d1224d87879363f66"
-SRC_URI[sha256sum] = "f26eed3dc481403b80825aa2315bd34446aae02b40ab9965fa0fe4ba392ca92b"
+SRC_URI[md5sum] = "66bd71ce43b91a089830a451756e5c22"
+SRC_URI[sha256sum] = "253e07c3a73c6c850ad68743d80bf22bc7d89365523b6c5707b47f3331c37d64"
 
 S = "${WORKDIR}"
 
