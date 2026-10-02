@@ -19,3 +19,8 @@ IMAGE_INSTALL += "\
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', 'weston-xwayland', '', d)} \
     soms-in-space \
 "
+
+# Install the Vulkan loader and TI's PowerVR Rogue Vulkan driver so Godot can
+# use its Vulkan renderer. Only TI's vendor GPU stack provides libvk-rogue.
+IMAGE_INSTALL += "${@oe.utils.conditional('PREFERRED_PROVIDER_virtual/gpudriver', 'ti-img-rogue-driver', \
+    bb.utils.contains('DISTRO_FEATURES', 'vulkan wayland', 'vulkan-loader libvk-rogue', '', d), '', d)}"
