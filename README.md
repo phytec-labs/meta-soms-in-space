@@ -15,7 +15,6 @@ This branch targets the Yocto Project **wrynose** release.
 * openembedded-core (wrynose)
 * meta-phytec (for PHYTEC hardware support)
   * meta-ampliphy
-* meta-qt6 (for qtwayland)
 
 ## Usage
 
